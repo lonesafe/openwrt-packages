@@ -26,7 +26,9 @@ BINDIR=$(PREFIX)/bin
 SBINDIR=$(PREFIX)/sbin
 MANDIR=$(PREFIX)/share/man
 DOCDIR=$(PREFIX)/share/doc/vpnc
-
+PKG_NAME:=vpnc
+PKG_VERSION:=1.0.0
+PKG_RELEASE:=1
 # The license of vpnc (Gpl >= 2) is quite likely incompatible with the
 # openssl license. Openssl is one possible library used to provide certificate
 # support for vpnc (hybrid only).
