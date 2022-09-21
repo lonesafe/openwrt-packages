@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ddns-scripts-aliyun
 PKG_VERSION:=1.0.2
-PKG_RELEASE:=
+PKG_RELEASE:=10
 
 PKG_LICENSE:=GPLv2
 PKG_MAINTAINER:=Sense <sensec@gmail.com>

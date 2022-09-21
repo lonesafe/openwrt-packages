@@ -1,5 +1,5 @@
 config server 'server'
-	option url 'https://op.roubsite.com'
+	option url 'https://op.supes.top'
 
 config client 'client'
 	option upgrade_packages '1'

@@ -9,12 +9,12 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=fullconenat
-PKG_RELEASE:=
+PKG_RELEASE:=17
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/llccd/netfilter-full-cone-nat.git
 PKG_SOURCE_DATE:=2022-02-13
-PKG_SOURCE_VERSION:=null
+PKG_SOURCE_VERSION:=108a36cbdca17e68c9e6e7fd5e26156a88f738e8
 PKG_MIRROR_HASH:=skip
 
 PKG_LICENSE:=GPL-2.0

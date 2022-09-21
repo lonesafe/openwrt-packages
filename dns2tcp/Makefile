@@ -6,12 +6,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dns2tcp
 PKG_VERSION:=1.1.0
-PKG_RELEASE:=
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/zfl9/dns2tcp.git
 PKG_SOURCE_DATE:=2020-05-05
-PKG_SOURCE_VERSION:=null
+PKG_SOURCE_VERSION:=10ed687778f18d1b9c98bb51187a3a9086d3a0d9
 PKG_MIRROR_HASH:=skip
 
 PKG_MAINTAINER:=Tianling Shen <cnsztl@immortalwrt.org>
