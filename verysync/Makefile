@@ -28,7 +28,7 @@ endif
 
 PKG_NAME:=verysync
 PKG_VERSION:=2.13.2
-PKG_RELEASE:=18
+PKG_RELEASE:=
 
 PKG_SOURCE:=$(PKG_NAME)-linux-$(PKG_ARCH_VERYSYNC)-v$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://dl.verysync.com/releases/v$(PKG_VERSION)/ \

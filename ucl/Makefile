@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ucl
 PKG_VERSION:=1.03
-PKG_RELEASE:=1
+PKG_RELEASE:=
 
 PKG_MAINTAINER:=Xingwang Liao <kuoruan@gmail.com>
 PKG_LICENSE:=GPL-2.0-only

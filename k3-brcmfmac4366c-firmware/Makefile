@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=k3wifi
 PKG_VERSION:=1
-PKG_RELEASE:=9
+PKG_RELEASE:=
 
 include $(INCLUDE_DIR)/package.mk
 

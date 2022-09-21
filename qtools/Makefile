@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qtools
 PKG_VERSION:=0.0.1
-PKG_RELEASE:=1
+PKG_RELEASE:=
 
 PKG_MAINTAINER:=Konstantine Shevlakov <shevlakov@132lan.ru>
 PKG_LICENSE:=LICENSE
@@ -17,7 +17,7 @@ PKG_LICENSE_FILES:=COPYING
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/intelfx/qtools.git
-PKG_SOURCE_VERSION:=eac36715a44767d1ee7acf0db413411ac85625d2
+PKG_SOURCE_VERSION:=null
 
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz

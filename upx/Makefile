@@ -7,7 +7,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=upx
-PKG_RELEASE:=27
+PKG_RELEASE:=
 
 PKG_MAINTAINER:=Xingwang Liao <kuoruan@gmail.com>
 PKG_LICENSE:=GPL-2.0-only

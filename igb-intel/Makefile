@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=kmod-igb-intel
 PKG_VERSION:=5.10.2
-PKG_RELEASE:=3
+PKG_RELEASE:=
 
 PKG_SOURCE:=igb-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://downloads.sourceforge.net/project/e1000/igb%20stable/$(PKG_VERSION)/
