@@ -39,7 +39,6 @@ define Package/miniupnpd/Default
 	+libcap-ng \
 	+libmnl \
 	+libuuid
-  PROVIDES:=miniupnpd
   TITLE:=Lightweight UPnP IGD, NAT-PMP & PCP daemon
   SUBMENU:=Firewall
   URL:=https://miniupnp.tuxfamily.org/
@@ -62,6 +61,7 @@ define Package/miniupnpd-nftables
   DEPENDS+= \
 	+libnftnl
   TITLE+= (nftables)
+  PROVIDES:=miniupnpd
   VARIANT:=nftables
   DEFAULT_VARIANT:=1
   CONFLICTS:=miniupnpd-iptables
