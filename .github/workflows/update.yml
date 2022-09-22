@@ -176,23 +176,10 @@ jobs:
         svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-control-speedlimit
         ) &
         (
-        git_sparse_clone openwrt-22.03 "https://github.com/openwrt/packages" "oppackages" \
-        utils/cgroupfs-mount utils/coremark utils/watchcat utils/dockerd net/nginx net/uwsgi net/ddns-scripts net/smartdns \
-        net/ariang admin/netdata net/transmission-web-control net/miniupnpd
-        mv -f miniupnpd miniupnpd-nft
         git_sparse_clone master "https://github.com/coolsnowwolf/packages" "leanpkg" net/miniupnpd net/mwan3 multimedia/UnblockNeteaseMusic-Go \
         multimedia/UnblockNeteaseMusic net/amule net/baidupcs-web net/frp multimedia/gmediarender net/go-aliyundrive-webdav \
         net/qBittorrent-static net/qBittorrent net/transmission libs/qtbase libs/qttools libs/rblibtorrent \
         net/uugamebooster net/verysync net/vlmcsd net/dnsforwarder net/nps net/tcpping net/redsocks2 net/netatalk sound/forked-daapd
-        ) &
-        (
-        git_sparse_clone openwrt-22.03 "https://github.com/openwrt/openwrt" "openwrt" \
-        package/base-files package/network/config/firewall4 package/network/config/firewall package/system/opkg package/libs/mbedtls package/network/services/ppp \
-        package/network/services/dnsmasq package/libs/openssl
-        git_sparse_clone openwrt-22.03 "https://github.com/openwrt/luci" "opluci" applications/luci-app-attendedsysupgrade applications/luci-app-aria2 \
-        applications/luci-app-ddns applications/luci-app-acme applications/luci-app-opkg applications/luci-app-firewall \
-        applications/luci-app-ksmbd applications/luci-app-samba4 applications/luci-app-upnp applications/luci-app-watchcat modules/luci-base modules/luci-mod-network \
-        modules/luci-mod-status modules/luci-mod-system
         ) &
         (
         git_sparse_clone master "https://github.com/immortalwrt/packages" "immpkgs" net/mwol \
@@ -300,7 +287,6 @@ jobs:
         bash diy/convert_translation.sh -a >/dev/null 2>&1 || true
         
         #sed -i 's?"http://" + window.location.hostname?window.location.protocol + "//" + window.location.hostname?g' `find luci-app*/luasrc/view/ -maxdepth 2 -name "*.htm"`
-        rm -f miniupnpd/patches/106-spam-syslog*
         sed -i "/minisign:minisign/d" luci-app-dnscrypt-proxy2/Makefile
         sed -i 's/+libstdcpp/+libstdcpp +zlib/' ngrokc/Makefile
         sed -i 's/+dockerd/+dockerd +cgroupfs-mount/' luci-app-docker*/Makefile
@@ -311,21 +297,12 @@ jobs:
         sed -i 's/+vsftpd$/+vsftpd-alt/' luci-app-vsftpd/Makefile
         sed -i 's/ +uhttpd-mod-ubus//' luci-app-packet-capture/Makefile
         sed -i '/boot()/,+2d' ddns-scripts/files/etc/init.d/ddns
-        sed -i "/DISTRIB_DESCRIPTION/c\DISTRIB_DESCRIPTION=\"%D %C by Kiddin'\"" base-files/files/etc/openwrt_release
         sed -i 's?admin/status/channel_analysis??' luci-mod-status/root/usr/share/luci/menu.d/luci-mod-status.json
         sed -i "s/PKG_VERSION:=2/PKG_VERSION:=3/" mwan3/Makefile
         sed -i "s/default n/default y/" dockerd/Config.in
         sed -i "/+uhttpd/d" ariang/Makefile
         sed -i "s/PKG_VERSION:=2.0/PKG_VERSION:=3.0/" miniupnpd/Makefile
         cp -f autocore/files/generic/10_system.js luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
-        sed -i -e '$a /etc/bench.log' \
-        -e '/\/etc\/profile/d' \
-        -e '/\/etc\/shinit/d' \
-        base-files/files/lib/upgrade/keep.d/base-files-essential
-        sed -i -e '/^\/etc\/profile/d' \
-        -e '/^\/etc\/shinit/d' \
-        base-files/Makefile
-        cp -f base-files/files/sbin/sysupgrade my-default-settings/files/sbin/
         sed -i '$a cgi-timeout = 300' uwsgi/files-luci-support/luci-webui.ini
         sed -i '$a cgi-timeout = 90' uwsgi/files-luci-support/luci-cgi_io.ini
         sed -i '/limit-as/c\limit-as = 5000' uwsgi/files-luci-support/luci-webui.ini
@@ -348,6 +325,8 @@ jobs:
             echo "wait"
           sleep 1
         done
+        rm -rf base-files
+        
     - name: Apply
       run: |
         Emoji=("🎉" "🤞" "✨" "🎁" "🎈" "🎄" "🎨" "💋" "🍓" "🍕" "🍉" "💐" "🌴" "🚀" "🛸" "🗽" "⛅" "🌈" "🔥" "⛄" "🐶" "🏅" "🦄" "🐤")
