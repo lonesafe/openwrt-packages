@@ -1,6 +1,6 @@
 --- a/luci-app-acme/Makefile
 +++ b/luci-app-acme/Makefile
-@@ -8,7 +8,7 @@
+@@ -11,7 +11,7 @@
  include $(TOPDIR)/rules.mk
  
  LUCI_TITLE:=ACME package - LuCI interface
