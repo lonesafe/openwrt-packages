@@ -337,7 +337,6 @@ jobs:
           fi
         done
         git reset --soft HEAD^
-        rm -Rf */.git
         git add .
         git commit -m "${Emoji[$[$RANDOM % ${#Emoji[@]}]]} Sync $(date +%Y-%m-%d" "%H:%M:%S)"
         git push -f
