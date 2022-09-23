@@ -215,7 +215,6 @@ jobs:
         mv -n liep/* ./ ; rm -Rf liep
         mv -n openwrt-app-actions/applications/* ./;rm -rf openwrt-app-actions
         cp -rf diy/.packages/* ./ || true
-        rm -Rf */.git
     - name: SSH connection to Actions
       uses: kiddin9/debugger-action@master
       if: github.event.inputs.ssh == 'true'
