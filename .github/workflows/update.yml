@@ -230,15 +230,6 @@ jobs:
         -e "s/\(network\..*\)\.ifname/\1.device/g" \
         `find \( -path "*/root/*" -o -path "*/files/*" -o -path "*/luasrc/*" \) ! -path "./base-files/*" ! -path "./dnsmasq/*" ! -path "./luci-base/*" ! -path "./ppp/*" -type f` &
         (
-        function latest() {
-          (curl -gs -H 'Content-Type: application/json' \
-             -H "Authorization: Bearer ${{ secrets.REPO_TOKEN }}" \
-             -X POST -d '{ "query": "query {repository(owner: \"'"$1"'\", name: \"'"$2"'\"){latestRelease{tagName tagCommit{oid}}refs(refPrefix:\"refs/tags/\",last:1,orderBy:{field:TAG_COMMIT_DATE,direction:ASC}){edges{node{name target{oid}}}}defaultBranchRef{target{...on Commit {oid}}}}}"}' https://api.github.com/graphql)
-        }
-        
-        touch /tmp/ok
-        ) &
-        (
         bash diy/create_acl_for_luci.sh -a >/dev/null 2>&1 || true
         bash diy/convert_translation.sh -a >/dev/null 2>&1 || true
         
@@ -277,10 +268,6 @@ jobs:
           */Makefile
         ) &
         
-        while [[ ! -f /tmp/ok ||  ! -f /tmp/ok2 ]]; do
-            echo "wait"
-          sleep 1
-        done
         rm -rf base-files
         
     - name: Apply
